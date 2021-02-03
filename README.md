@@ -84,7 +84,7 @@ export dataset=feddial
 export dataset_dir=data/${dataset}
 
 python -u score.py \
-        --data=%{dataset_dir}/${dataset}.pkl \
+        --data=%{dataset_dir}/${dataset}_eval.pkl \
         --device=cuda \
         --model_name_or_path roberta-base-nli-stsb-mean-tokens \
         --loss_type=coh \
