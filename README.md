@@ -98,7 +98,7 @@ python -u score.py \
 export dataset=feddial
 export dataset_dir=data/${dataset}
 
-cd dataset_dir
+cd ${dataset_dir}
 
 python -u compute_corr.py
 
