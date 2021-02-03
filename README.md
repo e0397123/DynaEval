@@ -49,14 +49,14 @@ export dataset=empathetic
 export dataset_dir=data/${dataset}
 export task=us
 export model_path=your_model_path
-export checkpoint_path=your_checkpoint_path
+export checkpoint_name=your_checkpoint_name
 
 python -u eval.py \
         --data=${dataset_dir}/${dataset}_${task}.pkl \
         --device=cuda \
         --model_name_or_path roberta-base-nli-stsb-mean-tokens \
         --model_save_path ${model_path} \
-        --oot_model ${checkpoint_path}
+        --oot_model ${checkpoint_name}
 ```
 
 ### Score 
