@@ -25,7 +25,7 @@ def main(args):
 
     log.debug("Building model...")
     model_file = os.path.join(args.model_save_path, args.oot_model)
-    model = dgcn.ConsistentGCN(args).to(args.device)
+    model = dgcn.DynaEval(args).to(args.device)
     opt = dgcn.Optim(args.learning_rate, args.max_grad_value, args.weight_decay)
     opt.set_parameters(model.parameters(), args.optimizer)
 

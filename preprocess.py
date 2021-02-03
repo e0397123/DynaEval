@@ -28,10 +28,6 @@ def load_data(args):
         utts_2 = eval(training_data.loc[idx]['utts2'])
         utts_2 = [' '.join(item) for item in utts_2]
 
-        logic_labels_1 = [eval(item) for item in training_data.loc[idx]['logics1'].split()]
-
-        logic_labels_2 = [eval(item) for item in training_data.loc[idx]['logics2'].split()]
-
         label = training_data.loc[idx]['coh_idx']
 
         spk_1_list = []
@@ -54,9 +50,7 @@ def load_data(args):
                              speaker_2=spk_2_list,
                              text_1=utts_1,
                              text_2=utts_2,
-                             label=label,
-                             logic_labels_1=logic_labels_1,
-                             logic_labels_2=logic_labels_2)
+                             label=label)
         train.append(sample)
 
     for idx in tqdm(range(len(dev_data))):
@@ -70,8 +64,6 @@ def load_data(args):
 
         spk_1_list = []
         spk_2_list = []
-        logic_labels_1 = [eval(item) for item in dev_data.loc[idx]['logics1'].split()]
-        logic_labels_2 = [eval(item) for item in dev_data.loc[idx]['logics2'].split()]
 
         for j in range(len(utts_1)):
             if j % 2 == 0:
@@ -90,9 +82,7 @@ def load_data(args):
                              speaker_2=spk_2_list,
                              text_1=utts_1,
                              text_2=utts_2,
-                             label=label,
-                             logic_labels_1=logic_labels_1,
-                             logic_labels_2=logic_labels_2)
+                             label=label)
         dev.append(sample)
 
     for idx in tqdm(range(len(test_data))):
@@ -106,8 +96,6 @@ def load_data(args):
 
         spk_1_list = []
         spk_2_list = []
-        logic_labels_1 = [eval(item) for item in test_data.loc[idx]['logics1'].split()]
-        logic_labels_2 = [eval(item) for item in test_data.loc[idx]['logics2'].split()]
 
         for j in range(len(utts_1)):
             if j % 2 == 0:
@@ -126,8 +114,6 @@ def load_data(args):
                              speaker_2=spk_2_list,
                              text_1=utts_1,
                              text_2=utts_2,
-                             logic_labels_1=logic_labels_1,
-                             logic_labels_2=logic_labels_2,
                              label=label)
         test.append(sample)
 

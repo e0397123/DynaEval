@@ -25,20 +25,6 @@ python -u preprocess.py \
 
 ```
 
-### Preprocess evaluation data
-The following command will preprocess evaluation data for dialogue evaluation task.
-
-```bash
-export dataset=fed
-export dataset_dir=data/${dataset}
-
-python -u create_eval_data.py \
-        --data_path=${dataset_dir} \
-        --dataset=${dataset}
-
-```
-
-
 ### Train DynaEval model
 The following command will train a model on `empathetic` corpus for `us` task.
 
@@ -76,6 +62,21 @@ python -u eval.py \
 ### Score 
 The following command provides metric scores based on a trained model
 
+#### Preprocess evaluation data
+The following command will preprocess evaluation data for dialogue evaluation task.
+
+```bash
+export dataset=fed
+export dataset_dir=data/${dataset}
+
+python -u create_eval_data.py \
+        --data_path=${dataset_dir} \
+        --dataset=${dataset}
+
+```
+
+#### Generate score file
+
 ```bash
 export model_path=your_model_path
 export checkpoint_path=your_checkpoint_path
@@ -89,3 +90,4 @@ python -u score.py \
         --oot_model ${checkpoint_path}
 
 ```
+

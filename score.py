@@ -26,7 +26,7 @@ def main(args):
 
     log.debug("Building model...")
     model_file = os.path.join(args.model_save_path, args.oot_model)
-    model = dgcn.ConsistentGCN(args).to(args.device)
+    model = dgcn.DynaEval(args).to(args.device)
 
     ckpt = torch.load(model_file)
     best_dev_f1 = ckpt["best_dev_acc"]

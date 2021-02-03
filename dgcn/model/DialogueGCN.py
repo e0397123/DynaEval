@@ -13,10 +13,10 @@ import random
 log = dgcn.utils.get_logger()
 
 
-class GCN(nn.Module):
+class DynaEval(nn.Module):
 
     def __init__(self, args):
-        super(GCN, self).__init__()
+        super(DynaEval, self).__init__()
 
         self.g_dim = args.sentence_dim
 
