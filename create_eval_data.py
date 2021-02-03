@@ -26,9 +26,6 @@ def load_data(args):
 
         label = eval_data.loc[idx]['coh_idx']
 
-        logic_labels_1 = [int(item) for item in eval_data.loc[idx]['logics1'].split()]
-        logic_labels_2 = [int(item) for item in eval_data.loc[idx]['logics2'].split()]
-
         spk_1_list = []
         spk_2_list = []
 
@@ -49,9 +46,7 @@ def load_data(args):
                              speaker_2=spk_2_list,
                              text_1=utts_1,
                              text_2=utts_2,
-                             label=label,
-                             logic_labels_1=logic_labels_1,
-                             logic_labels_2=logic_labels_2)
+                             label=label)
         eval_list.append(sample)
 
     return eval_list
