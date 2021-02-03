@@ -66,7 +66,7 @@ The following command provides metric scores based on a trained model
 The following command will preprocess evaluation data for dialogue evaluation task.
 
 ```bash
-export dataset=fed
+export dataset=feddial
 export dataset_dir=data/${dataset}
 
 python -u create_eval_data.py \
@@ -78,16 +78,18 @@ python -u create_eval_data.py \
 #### Generate score file
 
 ```bash
-export model_path=your_model_path
-export checkpoint_path=your_checkpoint_path
+export model_save_path=your_model_save_path
+export checkpoint_name=your_checkpoint_name
+export dataset=feddial
+export dataset_dir=data/${dataset}
 
 python -u score.py \
-        --data=data/evaluation/fed_eval.pkl \
+        --data=%{dataset_dir}/${dataset}.pkl \
         --device=cuda \
         --model_name_or_path roberta-base-nli-stsb-mean-tokens \
         --loss_type=coh \
-        --model_save_path ${model_path} \
-        --oot_model ${checkpoint_path}
+        --model_save_path ${model_save_path} \
+        --oot_model ${checkpoint_name}
 
 ```
 
