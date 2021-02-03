@@ -93,3 +93,13 @@ python -u score.py \
 
 ```
 
+#### Compute correlation
+```bash
+export dataset=feddial
+export dataset_dir=data/${dataset}
+
+python -u ${dataset_dir}/compute_corr.py
+
+```
+
+
