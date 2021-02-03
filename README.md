@@ -98,7 +98,9 @@ python -u score.py \
 export dataset=feddial
 export dataset_dir=data/${dataset}
 
-python -u ${dataset_dir}/compute_corr.py
+cd dataset_dir
+
+python -u compute_corr.py
 
 ```
 
