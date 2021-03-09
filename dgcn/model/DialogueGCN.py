@@ -20,12 +20,12 @@ class DynaEval(nn.Module):
 
         self.g_dim = args.sentence_dim
 
-        ds1_dim = int(self.g_dim / 2)
-        h0_dim = 200
+#        ds1_dim = int(self.g_dim / 2)
+        h0_dim = 300
 
-        h1_dim = 100
-        h2_dim = 100
-        hc_dim = 100
+        h1_dim = 150
+        h2_dim = 150
+        hc_dim = 150
         tag_size = 1
 
         self.args = args
@@ -33,8 +33,8 @@ class DynaEval(nn.Module):
         self.wf = args.wf
         self.device = args.device
 
-        self.ds_1 = nn.Linear(self.g_dim, ds1_dim)
-        self.ds_2 = nn.Linear(ds1_dim, h0_dim)
+        self.ds_1 = nn.Linear(self.g_dim, h0_dim)
+#        self.ds_2 = nn.Linear(ds1_dim, h0_dim)
         self.drop = nn.Dropout(args.drop_rate)
 
         # self.bert = BertSeqContext(args)
@@ -77,8 +77,8 @@ class DynaEval(nn.Module):
 
     def downsample(self, data):
         ds_1 = self.drop(self.ds_1(data))
-        ds_2 = self.drop(self.ds_2(ds_1))
-        return ds_2
+#        ds_2 = self.drop(self.ds_2(ds_1))
+        return ds_1
 
     def forward(self, data):
         a_graph_out, a_features, a_bs, a_num_utt, b_graph_out, b_features, b_bs, b_num_utt = self.get_rep(data)

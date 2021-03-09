@@ -4,12 +4,12 @@
 #SBATCH -n 1
 #SBATCH -p new
 #SBATCH --gres=gpu:1
-#SBATCH --output=log_dir/train.empathetic.us.567890.log
+#SBATCH --output=log_dir/train.decode.us.234567.log
 
-export dataset=empathetic
+export dataset=decode
 export dataset_dir=data/${dataset}
 export task=us
-export seed=567890
+export seed=234567
 
 python -u train.py \
         --data=${dataset_dir}/${dataset}_${task}.pkl \
@@ -18,8 +18,8 @@ python -u train.py \
         --epochs=20 \
         --batch_size=512 \
         --seed=${seed} \
-        --wf=6 \
-        --wp=6 \
+        --wf=2 \
+        --wp=2 \
         --model_name_or_path roberta-base-nli-stsb-mean-tokens \
         --model_save_path output/${dataset}-${task}-${seed}
 

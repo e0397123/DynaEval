@@ -28,7 +28,8 @@ class Coach:
         self.best_epoch = ckpt["best_epoch"]
         self.best_state = ckpt["best_state"]
         self.model.load_state_dict(self.best_state)
-
+        log.info("loaded pretrained model")
+    
     def save_ckpt(self, ckpt):
         save_path = os.path.join(self.args.model_save_path, "best.pt")
         torch.save(ckpt, save_path)

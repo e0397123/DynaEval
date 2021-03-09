@@ -3,13 +3,13 @@ import random
 
 import torch
 
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
+from transformers import RobertaTokenizer, RobertaModel
 
 random.seed(2000)
 
 
 class Dataset:
-
     def __init__(self, samples, args):
         self.samples = samples
         self.batch_size = args.batch_size
@@ -17,7 +17,8 @@ class Dataset:
         self.speaker_to_idx = {'A': 0, 'B': 1}
         self.max_seq_len = args.max_seq_len
         self.args = args
-        self.sentence_model = SentenceTransformer(args.model_name_or_path, device=args.device)
+        self.sentence_model = RobertaModel.from_pretrained(args.model_name_or_path).to(args.device)
+        self.tokenizer = RobertaTokenizer.from_pretrained(args.model_name_or_path)
         self.sentence_dim = args.sentence_dim
 
     def __len__(self):
@@ -90,19 +91,23 @@ class Dataset:
 
             b_cur_len = len(s.text_2)
 
-            text_1 = [' '.join(item.split()[:self.args.max_seq_len]) for item in s.text_1]
+            text_1 = [' '.join(item.split()[:self.args.max_seq_len]) + ' __eou__' for item in s.text_1]
 
-            text_2 = [' '.join(item.split()[:self.args.max_seq_len]) for item in s.text_2]
+            text_2 = [' '.join(item.split()[:self.args.max_seq_len]) + ' __eou__' for item in s.text_2]
 
-            a_sentence_embeddings = self.sentence_model.encode(text_1)
+            input_1 = {k:v.to(self.args.device) for k, v in self.tokenizer(text_1, padding=True, return_tensors="pt").items()}
 
-            b_sentence_embeddings = self.sentence_model.encode(text_2)
+            input_2 = {k:v.to(self.args.device) for k, v in self.tokenizer(text_2, padding=True, return_tensors="pt").items()}
+            
+            a_sentence_embeddings = self.sentence_model(**input_1)
 
-            a_text_tensor[i, :a_cur_len, :] = torch.from_numpy(a_sentence_embeddings)
+            b_sentence_embeddings = self.sentence_model(**input_2)
+
+            a_text_tensor[i, :a_cur_len, :] = torch.mean(a_sentence_embeddings[0].detach().cpu(), dim=1)
 
             a_speaker_tensor[i, :a_cur_len] = torch.tensor([self.speaker_to_idx[c] for c in s.speaker_1])
 
-            b_text_tensor[i, :b_cur_len, :] = torch.from_numpy(b_sentence_embeddings)
+            b_text_tensor[i, :b_cur_len, :] = torch.mean(b_sentence_embeddings[0].detach().cpu(), dim=1)
 
             b_speaker_tensor[i, :b_cur_len] = torch.tensor([self.speaker_to_idx[c] for c in s.speaker_2])
 
