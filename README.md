@@ -103,5 +103,7 @@ cd ${dataset_dir}
 python -u compute_corr.py
 
 ```
+## Acknowledge
 
+The current repository is based on the implementation at https://github.com/declare-lab/conv-emotion
 
