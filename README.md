@@ -1,6 +1,6 @@
 # DynaEval
 Code associated with the DynaEval
-<br /><br /><br />
+<br /><br />
 ![alt text](GCN.jpg)
 
 ## Installation
