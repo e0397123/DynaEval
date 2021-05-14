@@ -1,5 +1,5 @@
 # DynaEval
-Code associated with the DynaEval
+Repository associated with DynaEval
 <br /><br />
 ![alt text](GCN.jpg)
 
