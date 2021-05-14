@@ -106,5 +106,5 @@ python -u compute_corr.py
 ```
 ## Acknowledge
 
-The current repository is based on the implementation at https://github.com/declare-lab/conv-emotion
+The implementation of this repository is based on https://github.com/declare-lab/conv-emotion
 
