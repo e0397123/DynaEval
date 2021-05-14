@@ -1,6 +1,4 @@
 # DynaEval
-Repository associated with DynaEval
-<br /><br />
 ![alt text](GCN.jpg)
 
 ## Installation
