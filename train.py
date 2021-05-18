@@ -82,11 +82,6 @@ if __name__ == "__main__":
     parser.add_argument("--class_weight", action="store_true",
                         help="Use class weights in nll loss.")
     parser.add_argument("--model_name_or_path", type=str, default="distilbert-base-nli-stsb-mean-tokens",
-                        choices=['distilbert-base-nli-stsb-mean-tokens',
-                                 'roberta-base-nli-stsb-mean-tokens',
-                                 'roberta-large-nli-stsb-mean-tokens',
-                                 'bert-large-nli-stsb-mean-tokens',
-                                 'bert-base-nli-stsb-mean-tokens'],
                         help="Type of bert model.")
     parser.add_argument("--sentence_dim", type=int, default=768,
                         help="dimensionality of sentence embedding")
@@ -98,7 +93,7 @@ if __name__ == "__main__":
     # others
     parser.add_argument("--seed", type=int, default=24,
                         help="Random seed.")
-    parser.add_argument("--oot_model", type=str, default='epoch-01.pt',
+    parser.add_argument("--oot_model", type=str, default='epoch-02.pt',
                         help="model file name")
     args = parser.parse_args()
     log.debug(args)

@@ -92,17 +92,12 @@ if __name__ == "__main__":
     parser.add_argument("--class_weight", action="store_true",
                         help="Use class weights in nll loss.")
     parser.add_argument("--model_name_or_path", type=str, default="distilbert-base-nli-stsb-mean-tokens",
-                        choices=['distilbert-base-nli-stsb-mean-tokens',
-                                 'roberta-base-nli-stsb-mean-tokens',
-                                 'roberta-large-nli-stsb-mean-tokens',
-                                 'bert-large-nli-stsb-mean-tokens',
-                                 'bert-base-nli-stsb-mean-tokens'],
                         help="Type of bert model.")
     parser.add_argument("--sentence_dim", type=int, default=768,
                         help="dimensionality of sentence embedding")
     parser.add_argument("--max_seq_len", default=30, type=int,
                         help="maximum number of tokens per utterance.")
-    parser.add_argument("--max_dialogue_len", type=int, default=110,
+    parser.add_argument("--max_dialogue_len", type=int, default=700,
                         help="the longest dialogue turns")
 
     # others

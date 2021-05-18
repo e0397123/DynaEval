@@ -32,7 +32,7 @@ def main(args):
     best_dev_acc = ckpt["best_dev_acc"]
     best_epoch = ckpt["best_epoch"]
     best_state = ckpt["best_state"]
-    model.load_state_dict(best_state, strict=False)
+    model.load_state_dict(best_state)
     log.info("")
     log.info("Best epoch: {}".format(best_epoch))
     log.info("Best Dev Accuracy: {}:".format(best_dev_acc))
@@ -95,11 +95,6 @@ if __name__ == "__main__":
     parser.add_argument("--class_weight", action="store_true",
                         help="Use class weights in nll loss.")
     parser.add_argument("--model_name_or_path", type=str, default="distilbert-base-nli-stsb-mean-tokens",
-                        choices=['distilbert-base-nli-stsb-mean-tokens',
-                                 'roberta-base-nli-stsb-mean-tokens',
-                                 'roberta-large-nli-stsb-mean-tokens',
-                                 'bert-large-nli-stsb-mean-tokens',
-                                 'bert-base-nli-stsb-mean-tokens'],
                         help="Type of bert model.")
     parser.add_argument("--sentence_dim", type=int, default=768,
                         help="dimensionality of sentence embedding")
