@@ -8,11 +8,14 @@ conda env create -f environment.yml
 conda activate gcn
 ```
 ## Resources
-processed datasets can be found at https://drive.google.com/file/d/195qPhTWMxsgIZMW29IZ_QGHekqzggfB4/view?usp=sharing
+processed datasets can be found at <br />
+https://drive.google.com/file/d/195qPhTWMxsgIZMW29IZ_QGHekqzggfB4/view?usp=sharing
 
-checkpoints can be found at https://drive.google.com/file/d/1K8-o6BhJawAOxgTJ_0DK0Etya_UnmPbq/view?usp=sharing
+checkpoints can be found at <br />
+https://drive.google.com/file/d/1K8-o6BhJawAOxgTJ_0DK0Etya_UnmPbq/view?usp=sharing
 
-Finetuned RoBERTa model can be found at https://drive.google.com/file/d/1jQ3MqJ1GVE1LXpqZeTmJFMVuYlLOurqe/view?usp=sharing
+Finetuned RoBERTa model can be found at <br />
+https://drive.google.com/file/d/1jQ3MqJ1GVE1LXpqZeTmJFMVuYlLOurqe/view?usp=sharing
 
 ## Example commands
 
