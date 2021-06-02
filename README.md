@@ -115,7 +115,7 @@ python -u compute_corr.py
 ## Reference
 
 ```
-@inproceedings{zhang-etal-2021-dyaneval,
+@inproceedings{zhang-etal-2021-DynaEval,
   title={DynaEval: Unifying Turn and Dialogue Level Evaluation},
   author={Chen Zhang, Yiming Chen, Luis Fernando D’Haro, Yan Zhang, Thomas Friedrichs, Grandee Lee, Haizhou Li},
   booktitle = {The Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP 2021)},
