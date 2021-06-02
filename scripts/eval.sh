@@ -18,11 +18,11 @@ export lm_path=SRoBERTa
 echo "evaluate ${dataset}-${task}"
 
 python -u eval.py \
-	--data=${dataset_dir}/${dataset}_${task}.pkl \
-	--device=cuda \
-	--batch_size=512 \
-	--model_name_or_path ${lm_path} \
-    --wp 4 \
-    --wf 4 \
-	--model_save_path ${model_path} \
-	--oot_model ${checkpoint_number}
+        --data=${dataset_dir}/${dataset}_${task}.pkl \
+        --device=cuda \
+        --batch_size=512 \
+        --model_name_or_path ${lm_path} \
+        --wp 4 \
+        --wf 4 \
+        --model_save_path ${model_path} \
+        --oot_model ${checkpoint_number}
