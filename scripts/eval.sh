@@ -23,6 +23,6 @@ python -u eval.py \
 	--batch_size=512 \
 	--model_name_or_path ${lm_path} \
     --wp 4 \
-	--wf 4 \
+    --wf 4 \
 	--model_save_path ${model_path} \
 	--oot_model ${checkpoint_number}
