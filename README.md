@@ -111,6 +111,20 @@ cd ${dataset_dir}
 python -u compute_corr.py
 
 ```
+
+## Reference
+
+```
+@inproceedings{zhang-etal-2021-dyaneval,
+  title={DynaEval: Unifying Turn and Dialogue Level Evaluation},
+  author={Chen Zhang, Yiming Chen, Luis Fernando D’Haro, Yan Zhang, Thomas Friedrichs, Grandee Lee, Haizhou Li},
+  booktitle = {The Joint Conference of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (ACL-IJCNLP 2021)},
+  address = {Online},
+  month = {August},
+  year = {2021}
+}
+```
+
 ## Acknowledge
 
 The implementation of this repository is based on https://github.com/declare-lab/conv-emotion
