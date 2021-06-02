@@ -1,22 +1,26 @@
 #!/bin/bash
 
-#SBATCH --job-name=eval
+#SBATCH --job-name=score
 #SBATCH -n 1
 #SBATCH --gres=gpu:1
-#SBATCH --output=log_dir/eval.fed.log
+#SBATCH -p new
+#SBATCH -w hlt06
+#SBATCH --output=score.log
 
-export model_save_path=output/empathetic-us-roberta-base-nli-mean-10000-zc/
-export checkpoint_name=best.pt
-export dataset=fedturn
+export dataset=feddial
 export dataset_dir=data/${dataset}
+export checkpoint_number=best.pt
+export lm_path=SRoBERTa
+export model_save_path=output/empathetic-us-345678/
+export checkpoint_name=best.pt
 
-python -u score.py \
+/home/chen/anaconda3/envs/gcn/bin/python3 -u score.py \
 	--data=${dataset_dir}/${dataset}_eval.pkl \
     --device=cuda \
     --batch_size=1 \
-    --model_name_or_path roberta-base-nli-stsb-mean-tokens \
-    --wp -1 \
-    --wf -1 \
+    --model_name_or_path ${lm_path} \
+    --wp 4 \
+    --wf 4 \
 	--model_save_path ${model_save_path} \
 	--oot_model ${checkpoint_name}
 	
