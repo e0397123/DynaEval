@@ -7,6 +7,12 @@
 conda env create -f environment.yml
 conda activate gcn
 ```
+## Resources
+processed datasets can be found at https://drive.google.com/file/d/195qPhTWMxsgIZMW29IZ_QGHekqzggfB4/view?usp=sharing
+
+checkpoints can be found at https://drive.google.com/file/d/1K8-o6BhJawAOxgTJ_0DK0Etya_UnmPbq/view?usp=sharing
+
+Finetuned RoBERTa model can be found at https://drive.google.com/file/d/1jQ3MqJ1GVE1LXpqZeTmJFMVuYlLOurqe/view?usp=sharing
 
 ## Example commands
 
@@ -105,4 +111,5 @@ python -u compute_corr.py
 ## Acknowledge
 
 The implementation of this repository is based on https://github.com/declare-lab/conv-emotion
+The data creation process is based on https://github.com/UKPLab/acl2020-dialogue-coherence-assessment
 
