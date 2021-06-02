@@ -24,7 +24,7 @@ python -u preprocess.py \
 
 ```
 
-### Train DynaEval model
+### Train DynaEval model (details can be found in scripts)
 The following command will train a model on `empathetic` corpus for `us` task.
 
 ```bash
