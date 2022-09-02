@@ -94,8 +94,7 @@ export dataset_dir=data/${dataset}
 python -u score.py \
         --data=${dataset_dir}/${dataset}_eval.pkl \
         --device=cuda \
-        --model_name_or_path roberta-base-nli-stsb-mean-tokens \
-        --loss_type=coh \
+        --model_name_or_path SRoBERTa \
         --model_save_path ${model_save_path} \
         --oot_model ${checkpoint_name}
 
